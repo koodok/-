@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/board/boardWrite.css" />
+    <title>여행 후기</title>
+</head>
+<body>
+    <section>
+        <form action="/board/create" method="post" class="board_write" name="boardWrite_form">
+            <input type="text" name="name" value="{{user.name}}" hidden/>
+            <div class="write_subject">제목 : <input type="text" name="subject" placeholder="30자 이하로 입력해주세요." maxlength="30" class="bwrite_subject"/></div>
+            <div class="write_author">작성자 : {{user.name}}</div> 
+            <div class="write_content">내용 : <textarea name="content" cols="80" rows="40" class="bwrite_textarea"></textarea></div>
+            <button type="button" onclick="boardWrite_check();">글 등록</button>
+        </form> 
+    </section>
+    <script src="../board/boardWrite.js"></script>
+</body>
+</html>

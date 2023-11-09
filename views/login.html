@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>Plavel - 로그인</h1>
+    {% if user %}
+    <form action="/auth/logout" method="post">
+        {{user.name}}님 반갑습니다
+        <a href="/mypage/{{user.user_id}}">마이 페이지</a>
+        <button type="submit">로그아웃</button>
+    </form>
+    <br>
+    <a href="/home/{{user.user_id}}">홈으로</a>
+    {% else %}
+    <form action="/auth/login" method="post">
+        <div>
+            아이디 : 
+            <input type="text" name="user_id"/>
+        </div>
+        <div>
+            비밀번호 :
+            <input type="password" name="password" />
+        </div>
+        <button type="submit">로그인</button>
+    </form>
+    <a href="/adduser">회원가입</a>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>여행기록</title>
+    </head>
+    <body>
+        <h1>Plavel - My Travel Log</h1>
+        <form action="/auth/logout" method="post">
+            {{user.name}}님 반갑습니다
+            <a href="/mypage/{{user.user_id}}">마이 페이지</a>
+            <button type="submit">로그아웃</button>
+        </form>
+        <br>    
+        <form method="post" action="/tour/list/{{user.user_id}}">
+            
+            <input type="text" value="{{user.user_id}}" name="user_id" hidden/>
+            <h4>기록된 여행지를 검색해보세요</h4>
+            <table>
+                <tr>
+                    <td><label>도시</label></td>
+                    <td><input type="text" name="town"></td>
+                </tr>
+            </table>
+            <input type="submit" value="검색" name="">
+        </form>
+            <br>
+            <a href='/map/{{user.user_id}}'>지도에서 모든 여행지를 확인해보세요</a>
+            <br>
+            <br>
+            <a href="/home/{{user.user_id}}">홈으로</a>
+            <br>
+            <br>
+            <a href="/addtour/{{user.user_id}}">여행지 추가</a>
+        
+    </body>
+</html>

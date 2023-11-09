@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>Plavel - Mypage</h1>
+    <form action="/auth/change/{{user.user_id}}" method="post">
+        <h4>아이디 : {{user.user_id}}</h4>
+        <div>
+            변경 할 비밀번호 :
+            <input type="password" name="password"/>
+        </div>
+        <button type="submit">비밀번호 변경하기</button>
+        <h4>이름 : {{user.name}}</h4>
+        <h4>나이 : {{user.age}}</h4>
+    </form>
+    <br>
+    <a href="/home/{{user.user_id}}">홈으로</a>
+    <br>
+    <a href="/">로그인 페이지로</a>
+    <br><br>
+    <a href="/dropout/{{user.user_id}}">회원 탈퇴하기</a>
+</body>
+</html>

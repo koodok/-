@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/board/boardUpdate.css" />
+    <title>여행 후기</title>
+</head>
+<body>
+    <section>
+        <form action="/board/update" method="post" class="board_update" name="boardUpdate_form">
+            <input type="text" name="bid" value="{{board.id}}" hidden/>
+            <div class="update_subject">제목 : <input type="text" name="subject" value="{{board.subject}}" class="bupdate_subject"/></div>
+            <div class="update_author">작성자 : {{board.author}}</div>
+            <div class="update_content">
+                <textarea name="content" cols="85" rows="40" class="bupdate_textarea">{{board.content}}</textarea>
+            </div>
+            <button type="button" onclick="boardUpdate_check();">수정</button>
+            <div class="read_buttons">
+                <a href="/boardList" class="read_boardList"><button>목록</button></a>
+            </div>
+        </form>
+    </section>
+    <script src="../board/boardUpdate.js"></script>
+</body>
+</html>

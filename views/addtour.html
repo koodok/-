@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>여행지 추가</title>
+    </head>
+    <body>
+        <h1>Plavel - 여행지 추가</h1>
+        <br>
+        <form action="/tour/addtour" method="post">
+            <input type="text" value="{{user.user_id}}" name="user_id" hidden/>
+            <table>
+                <h4>작성 양식</h4>
+                <h5>경도 - 소수점 5자리 까지 입력 ex)37.57684</h5>
+                <h5>위도 - 소수점 5자리 까지 입력 ex)126.78612</h5>
+                <h5>도시 - 통일해서 입력 (대전으로 검색하면 대전광역시는 결과에 나오지 않습니다)</h5>
+                <h5>소요시간 - 1시간 : 1 / 30분 : 0.5</h5>
+                <h5>비용 - 10,000원 : 1 / 5,000원 : 0.5</h5>
+                <tr>
+                    <td><label>여행지명</label></td>
+                    <td><input type="text" name="name" /></td>
+                </tr>
+                <tr>
+                    <td><label>위도</label></td>
+                    <td><input type="text" name="latitude" /></td>
+                </tr>
+                <tr>
+                    <td><label>경도</label></td>
+                    <td><input type="text" name="longitude" /></td>
+                </tr>
+                <tr>
+                    <td><label>도시</label></td>
+                    <td><input type="text" name="town" /></td>
+                </tr>
+                <tr>
+                    <td><label>주소</label></td>
+                    <td><input type="text" name="address" /></td>
+                </tr>
+
+                <tr>
+                    <td><label>소요시간</label></td>
+                    <td><input type="text" name="time" /></td>
+                </tr>
+                <tr>
+                    <td><label>비용</label></td>
+                    <td><input type="text" name="price" /></td>
+                </tr>
+            </table>
+            <button type="submit">추가하기</button>
+        </form>
+        <a href="/tourlist/{{user.user_id}}">취소</a>
+    </body>
+</html>
+

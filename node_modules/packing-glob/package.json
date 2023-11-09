@@ -1,0 +1,26 @@
+{
+  "name": "packing-glob",
+  "version": "1.0.1",
+  "description": "Gruntjs file style",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhongzhi107/packing-glob.git"
+  },
+  "keywords": [
+    "glob"
+  ],
+  "author": "zhongzhi <zhong.zhi@163.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhongzhi107/packing-glob/issues"
+  },
+  "homepage": "https://github.com/zhongzhi107/packing-glob#readme",
+  "dependencies": {
+    "glob": "^7.0.5",
+    "lodash": "^4.14.0"
+  }
+}

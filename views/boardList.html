@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/board/boardList.css" />
+    <title>여행 후기</title>
+</head>
+<body>
+    <h1>Plavel - 여행 후기 게시판</h1>
+    <form action="/auth/logout" method="post">
+        {{user.name}}님 반갑습니다
+        <a href="/mypage/{{user.user_id}}">마이 페이지</a>
+        <button type="submit">로그아웃</button>
+    </form>
+    <a href="/home/{{user.user_id}}">홈으로</a>
+    <section>
+        <div class="board_list">
+            <table>
+                <thead>
+                    <tr class="table_menu">
+                        <th class="list_category">카테고리</th>
+                        <th class="list_subject">제목</th>
+                        <th class="list_writer">작성자</th>
+                        <th class="list_date">작성일</th>
+                        <th class="list_watch">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for board in boards %}
+                    <tr class="table_list">
+                        <td class="list_category">여행후기</td>
+                        <td class="list_subject" id="list_subject"><a href="/boardRead?id={{board.id}}">{{board.subject}}</a></td>
+                        <td class="list_writer" id="list_writer">{{board.author}}</td>
+                        <td class="list_date">{{board.createdAt}}</td>
+                        <td class="list_watch">{{board.watch}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="/boardWrite"><button>글 쓰기</button></a>
+        </div>
+    </section>
+</body>
+</html>

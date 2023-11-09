@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/board/boardRead.css" />
+    <title>여행 후기</title>
+</head>
+<body>
+    
+    <section>
+        <div class="board_read">
+            <div class="read_top">
+                <span id="read_subject">{{board.subject}}</span>
+                <span id="read_created">작성일 {{board.createdAt}}</span>
+            </div>
+            <div class="read_sub">
+                <span id="read_author">{{board.author}}</span>
+                <span>조회수 {{board.watch}}</span>
+            </div>
+            <div class="read_main">
+                {{board.content}}
+            </div>
+            <div class="read_buttons">
+                <a href="/boardList" class="read_boardList"><button>목록</button></a>
+                <div>
+                    {% if user.name == board.author %}
+                    <a href="/boardUpdate?id={{board.id}}"><button>글 수정</button></a>
+                    <form action="/board/delete" method="post">
+                        <input type="text" name="bid" value="{{board.id}}" hidden/>
+                        <button class="board_delete" type="submit">글 삭제</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

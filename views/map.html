@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="'UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지도</title>
+  </head>
+  <body>
+    <h1>Plavel - My Travel Log</h1>
+	<a href='/tourlist/{{user.user_id}}'>이전 페이지</a>
+	<a href="/home/{{user.user_id}}">홈으로</a>
+	<form action="/auth/logout" method="post">
+        {{user.name}}님 반갑습니다
+        <a href="/mypage/{{user.user_id}}">마이 페이지</a>
+        <button type="submit">로그아웃</button>
+    </form>
+    <div id="map" style="width:1500px;height:700px;"></div>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5f984326e1d829b884bbd9e0543dd2fb&libraries=clusterer"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(35.9, 127.0), // 지도의 중심좌표
+                level: 13, // 지도의 확대 레벨
+                mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+            }; 
+
+        // 지도를 생성한다 
+        var map = new kakao.maps.Map(mapContainer, mapOption); 
+        // 마커 이미지의 주소
+        var markerImageUrl = 'https://t1.daumcdn.net/localimg/localimages/07/2012/img/marker_p.png', 
+            markerImageSize = new kakao.maps.Size(40, 42), // 마커 이미지의 크기
+            markerImageOptions = { 
+                offset : new kakao.maps.Point(20, 42)// 마커 좌표에 일치시킬 이미지 안의 좌표
+            };
+
+        // 마커 이미지를 생성한다
+        var markerImage = new kakao.maps.MarkerImage(markerImageUrl, markerImageSize, markerImageOptions);
+      
+
+        // 지도에 마커를 생성하고 표시한다
+          
+        {% for tour in tour %}
+        var marker = new kakao.maps.Marker({ 
+        position: new kakao.maps.LatLng({{tour.latitude}},{{tour.longitude}}), // 마커의 좌표
+        draggable : false,
+        image : markerImage, // 마커의 이미지
+        map: map // 마커를 표시할 지도 객체 
+		});
+		var infowindow = new kakao.maps.InfoWindow({
+            content : '<div style="padding:1px;">{{tour.name}}</div>' // 인포윈도우에 표시할 내용
+          });
+		infowindow.open(map, marker);
+          kakao.maps.event.addListener(marker, 'click', function() {
+            alert('{{tour.name}}');
+        });
+		{% endfor %}
+	
+      </script>
+  </body>
+</html>
+

@@ -1,0 +1,90 @@
+section .board_read {
+    width: 70%;
+    margin-left: 15%;
+    height: 800px;
+    margin-top: 50px;
+}
+
+section .board_read .read_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    font-size: 17px;
+    border-top: 1px solid rgb(2, 35, 2);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+section .board_read .read_top #read_created {
+    font-size: 15px;
+    color: gray;
+}
+
+section .board_read .read_sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    font-size: 14px;
+    color: gray;
+    border-top: 1px solid rgb(2, 35, 2);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+section .board_read .read_sub #read_author {
+    font-size: 16px;
+    color: rgb(2, 35, 2);
+}
+
+section .board_read .read_main {
+    border-top: 1px solid rgb(2, 35, 2);
+    border-bottom: 1px solid rgb(2, 35, 2);
+    padding: 10px;
+    height: 500px;
+}
+
+section .board_read .read_buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+section .board_read .read_buttons div {
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
+}
+section .board_read .read_buttons div a button {
+    background-color: rgb(5, 67, 5);
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+    color: bisque;
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+section .board_read .read_buttons form .board_delete {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+    color: rgb(2, 35, 2);
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+section .board_read .read_buttons .read_boardList button{
+    background-color: rgb(5, 67, 5);
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+    color: bisque;
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+}
